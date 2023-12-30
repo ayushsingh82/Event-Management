@@ -3,16 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import EventList from './pages/EventList/EventList'
-import FilterEvent from './pages/FilterEvent/FilterEvent'
-import EventDetails from './pages/EventDetails/EventDetails'
+import {routes} from './routes/routes'
 
-const router=createBrowserRouter([
-  {path:'/',element:<EventList/>},
-  {path:'/find-events',element:<FilterEvent/>},
-  {path:'/events/:id',element:<EventDetails/>},
-])
 
+const router=createBrowserRouter(routes)
 function App() {
   const [count, setCount] = useState(0)
 

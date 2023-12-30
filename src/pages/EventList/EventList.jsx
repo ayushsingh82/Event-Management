@@ -1,3 +1,6 @@
+import EventCard from '../../components/EventCard/EventCard'
+
+
 const EventList=()=>{
     return(
         <div>
