@@ -1,3 +1,5 @@
+import './EventDetails.css';
+
 const EventDetails=()=>{
     return(
         <div>

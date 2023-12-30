@@ -1,5 +1,5 @@
 import EventCard from '../../components/EventCard/EventCard'
-
+import './EventList.css';
 
 const EventList=()=>{
     return(
