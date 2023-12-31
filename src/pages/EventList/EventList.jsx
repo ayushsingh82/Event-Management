@@ -1,6 +1,7 @@
 import EventCard from '../../components/EventCard/EventCard'
 import './EventList.css';
 import { eventList } from '../../utils/EventDatabase';
+
      
 const EventList=()=>{
     const renderEventCards=()=>{
@@ -19,11 +20,13 @@ const EventList=()=>{
     }
     return(
         <div>
-
+      <div className='event-list-wrapper'>
+      <div className='event-list'>
           {eventList.length>0?(
             renderEventCards()
           ):<p>No Events available</p>}
-
+          </div>
+          </div>
         </div>
     )
 }
