@@ -1,7 +1,7 @@
 import EventCard from '../../components/EventCard/EventCard'
 import './EventList.css';
 import { eventList } from '../../utils/EventDatabase';
-
+import Navigation from '../../components/Navigation/Navigation'
      
 const EventList=()=>{
     const renderEventCards=()=>{
@@ -20,6 +20,7 @@ const EventList=()=>{
     }
     return(
         <div>
+        <Navigation/>
       <div className='event-list-wrapper'>
       <div className='event-list'>
           {eventList.length>0?(
