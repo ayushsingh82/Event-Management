@@ -1,3 +1,6 @@
+import './EventCard.css';
+import { Link } from 'react-router-dom';
+
 const EventCard=({id,heading,date,location,img})=>{
     const {year,month}=date;
     return (
