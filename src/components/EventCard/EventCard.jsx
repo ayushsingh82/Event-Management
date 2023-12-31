@@ -1,8 +1,19 @@
-const EventCard=()=>{
+const EventCard=({id,heading,date,location,img})=>{
+    const {year,month}=date;
     return (
+          <>
         <div>
-            <h1>Event Card Display</h1>
+            <h3>{heading}</h3>
+            <p>
+                <span>Year:{year}</span>
+                <span>Month:{month}</span>
+            </p>
+            <p>{location}</p>
         </div>
+        <div>
+              <img src={img}></img>
+            </div>
+            </>
     )
 }
 

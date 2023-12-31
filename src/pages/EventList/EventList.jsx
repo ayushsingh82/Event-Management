@@ -1,10 +1,10 @@
 import EventCard from '../../components/EventCard/EventCard'
 import './EventList.css';
 import { eventList } from '../../utils/EventDatabase';
-
+     
 const EventList=()=>{
     const renderEventCards=()=>{
-        eventList.map(({id,date,heading,location,img})=>{
+       return eventList.map(({id,date,heading,location,img})=>{
             return(
                 <EventCard
                     key={id}
@@ -19,8 +19,11 @@ const EventList=()=>{
     }
     return(
         <div>
-            <h1>Event List</h1>
-            <EventCard></EventCard>
+
+          {eventList.length>0?(
+            renderEventCards()
+          ):<p>No Events available</p>}
+
         </div>
     )
 }
