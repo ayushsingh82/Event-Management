@@ -1,56 +1,53 @@
-import './FilterBox.css'
+import { useState,useEffect } from "react"
+import { generateDataOptions,months,years } from "../../utils/DataRender"
+import "./FilterBox.css"
+const FilterBox = ({getMonthYear})=>{
+    const [selectedMonth,setSelectedMonth]=useState("January");
+    const [selectedYear,setSelectedYear]=useState(2023);
 
-const months=[
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-];
-const years=[2023,2024];
+    const monthToRender =()=>generateDataOptions(months)
 
-const monthToDisplay=()=>{
-    return months.map((month,index)=>{
-        return (
-            <option key={index} value={month}>
-                {month}
-            </option>
-        )    
-    })
-}
+    const yearsToRender =()=>generateDataOptions(years)
 
-const yearsToDisplay=()=>{
-    return years.map((year,index)=>{
-        return(
-            <option key={index} value={year}>
-                {year}
-            </option>
-        )
-    })
-}
-
-const FilterBox=()=>{
-    return (
+    const handleMonthChange=(e)=>{
+        setSelectedMonth(e.target.value)
+    }  
+    const handleYearChange=(e)=>{
+       setSelectedYear(Number(e.target.value))
+    } 
+   
+    useEffect(()=>{
+        const updateParent=()=>{
+            getMonthYear(selectedMonth,selectedYear)
+        }
+        updateParent()
+    },[selectedMonth,selectedYear,getMonthYear])
+    return(
         <div>
-           <form>
-            <label htmlFor='month'>Month:</label>
-            <select>
-              {monthToDisplay()}
-            </select>
-            <label htmlFor='year'>Year:</label>
-            <select>
-                {yearsToDisplay()}
-            </select>
-           </form>
+            <form className="filter-card">
+             <div className="wrapper">
+                <div className="date">
+                    <label htmlFor="month">Month : </label>
+                        <select
+                        value={selectedMonth}
+                        onChange={handleMonthChange}
+                        >
+                        {monthToRender()}
+                        </select>
+                </div>
+                <div className="date">
+                    <label htmlFor="year">Year : </label>
+                    <select
+                    value={selectedYear}
+                    onChange={handleYearChange}
+                    >
+                        {yearsToRender()}
+                    </select>
+               </div>
+               </div>
+             </form>
+           
         </div>
     )
 }
-
-export default FilterBox
+export default FilterBox;
